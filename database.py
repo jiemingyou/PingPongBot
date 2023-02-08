@@ -41,10 +41,14 @@ class Database:
         }
         match = self.supabase.table("matches").insert(data).execute()
         return match.data
+
+    def match_history(self):
+        history = self.supabase.table('matches').select("created_at, player1, player2, score1, score2").execute()
+        return history.data
     
 if __name__ == "__main__":
     db = Database(Keys.DB_URL, Keys.DB_KEY)
     #db.insert_player("Zechen 123")
-    print(db.get_players())
+    print(db.match_history())
 
 
