@@ -29,22 +29,22 @@ def main():
 
     @bot.message_handler(commands=['start', 'help'])
     def send_welcome(message):
-        msg = """
-    PingPongBot V1 🤖🏓
+        msg = """\
+PingPongBot V1 🤖🏓
 
-    This bot stores table tennis match results and keeps track of ELO ranking scores. 
-    Everyone's ELO-score starts from 1500.
-    You will gain elo points from winning and lose points for losing.
-    The amount will be determined by the ELO score of your opponent and your final scoreline.
+This bot stores table tennis match results and keeps track of players' ELO ratings. 
+Everyone's ELO-score starts from 1500.
+You will gain elo points from winning games and lose points from losing.
+The amount will be determined by the ELO score of your opponent and your final scoreline.
 
-    Commands:
-    /newplayer - Register a new player. You only need to do this once.
-    /storematch - Save a match result.
-    /leaderboard - Current standings.
-    /history - See past matches
-    /help - How to use the bot
+Commands:
+/newplayer - Register a new player. You only need to do this once.
+/storematch - Save a match result.
+/leaderboard - Current standings.
+/history - See past matches
+/help - How to use the bot
 
-    If not working, dm @jiemingyou
+If not working, dm @jiemingyou
         """
         bot.reply_to(message, msg)
 
@@ -54,9 +54,12 @@ def main():
     def history(message):
         p = db.get_players()
         results = db.match_history()
-        for res in results:
-            msg = f"{res['created_at'][:10]}: {p[res['winner']]} ({res['winner_score']}) - ({res['loser_score']}) {p[res['loser']]}"
-            bot.send_message(message.chat.id, msg)
+        idx = min(10, len(results))
+        msg = ""
+        for res in results[:idx]:
+            msg += f"{res['created_at'][:10]}: {p[res['winner']]} ({res['winner_score']}) - ({res['loser_score']}) {p[res['loser']]}\n"
+        
+        bot.send_message(message.chat.id, msg)
 
 
     # Asks for the username
