@@ -1,7 +1,6 @@
 import uuid
 from datetime import datetime, timezone
 from supabase import create_client, Client
-import Keys
 
 
 class Database:
@@ -64,8 +63,7 @@ class Database:
         self.supabase.table("users").update({"loses": loses}).eq("id", userid).execute()
     
 if __name__ == "__main__":
-    db = Database(Keys.DB_URL, Keys.DB_KEY)
+    #db = Database(Keys.DB_URL, Keys.DB_KEY)
     #db.insert_player("Zechen 123")
-    print(db.leaderboard())
-
-
+    #print(db.leaderboard())
+    print("hello")
