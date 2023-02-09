@@ -162,9 +162,4 @@ def main():
 
 
     # Start the bot
-    bot.set_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get('PORT', 5000)),
-        url_path=Keys.TG_KEY,
-        webhook_url=  + Keys.TG_KEY
-    )
+    bot.infinity_polling()
