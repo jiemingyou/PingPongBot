@@ -1,0 +1,1 @@
+{"id":"0c129ff7-4554-4840-aae9-021a04b81b4e","space":45348,"runtime":"python3.9","name":"pongscore","path":"dv5s0p","project":"a02xgwiw","account":"144798365827","region":"eu-central-1","deps":["flask","pyTelegramBotAPI","supabase"],"envs":null,"public":true,"log_level":"off","cron":""}
