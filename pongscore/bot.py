@@ -57,7 +57,7 @@ If not working, dm @jiemingyou
         idx = min(10, len(results))
         msg = ""
         for res in results[:idx]:
-            msg += f"{res['created_at'][:10]}: {p[res['winner']]} ({res['winner_score']}) - ({res['loser_score']}) {p[res['loser']]}\n"
+            msg += f"{res['created_at'][5:10]}: {p[res['winner']]} ({res['winner_score']}) - ({res['loser_score']}) {p[res['loser']]}\n"
         
         bot.send_message(message.chat.id, msg)
 
