@@ -7,5 +7,6 @@ Telegram bot designed to keep track of table tennis matches, scores, and player 
 - Supabase PostgreSQL for storing the maetches
 - Custom elo-score calculation
 – Ranking System
-- Score Tracking
+- Match result tracker
 - User Profiles
+- Web app for hosting
