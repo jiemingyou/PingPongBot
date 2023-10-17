@@ -13,15 +13,15 @@ def elo_K(loser_score):
 
 
 def calc_elo(R1, R2, winner, ls):
-    '''
+    """
     winner = 1 if R1 wins else 0
     SOURCE: https://metinmediamath.wordpress.com/2013/11/27/how-to-calculate-the-elo-rating-including-example/
-    '''
+    """
     K = elo_K(ls)
-    
+
     # Transformed score
-    R1T = pow(10, R1/400)
-    R2T = pow(10, R2/400)
+    R1T = pow(10, R1 / 400)
+    R2T = pow(10, R2 / 400)
 
     # Expected score
     E1 = R1T / (R1T + R2T)
